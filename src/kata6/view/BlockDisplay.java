@@ -5,14 +5,22 @@
  */
 package kata6.view;
 
-import kata6.model.Block;
 
 /**
  *
  * @author marke
  */
-public interface BlockDisplay extends Block.Observer{
-    void display(Block block);
-    Block block();
+public interface BlockDisplay{
+    void display(int x, int y);    
+    void on(Moved moved);
     
+    interface Moved {
+        void to(int x, int y);
+
+        public static class Null implements Moved{
+            @Override
+            public void to(int x, int y) {
+            }
+        }
+    }
 }

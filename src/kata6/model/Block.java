@@ -25,7 +25,7 @@ public class Block {
         this.x = x;
         this.y = y;
         this.timer = new Timer();
-        this.timer.schedule(task(), 1000, 500);
+       // this.timer.schedule(task(), 1000, 500);
         this.observers = new ArrayList<>();
     }
 
@@ -83,6 +83,12 @@ public class Block {
         for (Observer observer : observers){
             observer.change();
         }
+    }
+
+    public void pos(int x, int y) {
+        this.x = x;
+        this.y = y;
+        change();
     }
     
     public interface Observer {
